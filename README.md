@@ -232,4 +232,4 @@ Issues and pull requests are welcome. Before submitting a change:
 
 ## License
 
-No license has been selected yet. Add a `LICENSE` file before distributing or accepting external contributions, and update this section with the chosen license.
+MIT License.
