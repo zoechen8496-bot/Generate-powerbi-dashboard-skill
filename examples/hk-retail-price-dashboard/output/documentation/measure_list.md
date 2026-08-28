@@ -1,0 +1,29 @@
+# Measure list
+
+- `DimDate[Selected Month Count]`
+- `Part1Assortment[Retailer Count]`
+- `Part1Assortment[SKU Count]`
+- `Part1Assortment[Brand Count]`
+- `Part1Assortment[Category Coverage %]`
+- `Part1Assortment[Exclusive SKU Count]`
+- `Part1Assortment[Common SKU Count]`
+- `Part1Assortment[Coverage Gap %]`
+- `Part1Assortment[Category Total SKU Count]`
+- `Part1Assortment[Show Visual]`
+- `Part1Assortment[Retailer_count]`
+- `Part2PriceIndex[Regular Price Index]`
+- `Part2PriceIndex[Promo Price Index]`
+- `Part2PriceIndex[Matched SKU Count]`
+- `Part2PriceIndex[Price Advantage vs Market]`
+- `Part2PriceIndex[Promo Price Advantage vs Market]`
+- `Part3PromotionIntensity[Promo SKU %]`
+- `Part3PromotionIntensity[Average Promo Days]`
+- `Part3PromotionIntensity[Promotion Frequency]`
+- `Part3PromotionIntensity[Average Discount %]`
+- `Part3PromotionIntensity[Median Discount %]`
+- `Part3PromotionIntensity[Promo Matched SKU Count]`
+- `Part4RetailerPositioningMatrix[Annual SKU Coverage %]`
+- `Part4RetailerPositioningMatrix[Annual Regular Price Index]`
+- `Part4RetailerPositioningMatrix[Annual Promo Price Index]`
+- `Part4RetailerPositioningMatrix[Annual Avg SKU Count]`
+- `Part4RetailerPositioningMatrix[Annual Avg Brand Count]`

@@ -1,0 +1,741 @@
+{
+  "measures": [
+    {
+      "table": "DimDate",
+      "name": "Selected Month Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Retailer Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "SKU Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Brand Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Category Coverage %"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Exclusive SKU Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Common SKU Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Coverage Gap %"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Category Total SKU Count"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Show Visual"
+    },
+    {
+      "table": "Part1Assortment",
+      "name": "Retailer_count"
+    },
+    {
+      "table": "Part2PriceIndex",
+      "name": "Regular Price Index"
+    },
+    {
+      "table": "Part2PriceIndex",
+      "name": "Promo Price Index"
+    },
+    {
+      "table": "Part2PriceIndex",
+      "name": "Matched SKU Count"
+    },
+    {
+      "table": "Part2PriceIndex",
+      "name": "Price Advantage vs Market"
+    },
+    {
+      "table": "Part2PriceIndex",
+      "name": "Promo Price Advantage vs Market"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Promo SKU %"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Average Promo Days"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Promotion Frequency"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Average Discount %"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Median Discount %"
+    },
+    {
+      "table": "Part3PromotionIntensity",
+      "name": "Promo Matched SKU Count"
+    },
+    {
+      "table": "Part4RetailerPositioningMatrix",
+      "name": "Annual SKU Coverage %"
+    },
+    {
+      "table": "Part4RetailerPositioningMatrix",
+      "name": "Annual Regular Price Index"
+    },
+    {
+      "table": "Part4RetailerPositioningMatrix",
+      "name": "Annual Promo Price Index"
+    },
+    {
+      "table": "Part4RetailerPositioningMatrix",
+      "name": "Annual Avg SKU Count"
+    },
+    {
+      "table": "Part4RetailerPositioningMatrix",
+      "name": "Annual Avg Brand Count"
+    }
+  ],
+  "relationships": [
+    {
+      "fromTable": "DimDate",
+      "fromColumn": "Date",
+      "toTable": "LocalDateTable_a4cbf1c5-369d-4d6e-af1b-42e6a2d488cf",
+      "toColumn": "Date",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "FactPriceObservations",
+      "fromColumn": "data_date",
+      "toTable": "LocalDateTable_7442ff1a-7875-44cc-a1ef-b32f8180da3f",
+      "toColumn": "Date",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "FactPriceObservations",
+      "fromColumn": "sku",
+      "toTable": "DimSkuCatalog",
+      "toColumn": "sku",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "DimMonth",
+      "fromColumn": "MonthStart",
+      "toTable": "LocalDateTable_a1be8bdc-7f7f-46a2-8d62-6e3c853ee9c0",
+      "toColumn": "Date",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "DimDate",
+      "fromColumn": "Month",
+      "toTable": "DimMonth",
+      "toColumn": "Month",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "FactPriceObservations",
+      "fromColumn": "month",
+      "toTable": "DimMonth",
+      "toColumn": "Month",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "Part1Assortment",
+      "fromColumn": "month",
+      "toTable": "DimMonth",
+      "toColumn": "Month",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "Part2PriceIndex",
+      "fromColumn": "month",
+      "toTable": "DimMonth",
+      "toColumn": "Month",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    },
+    {
+      "fromTable": "Part3PromotionIntensity",
+      "fromColumn": "month",
+      "toTable": "DimMonth",
+      "toColumn": "Month",
+      "active": true,
+      "crossFilteringBehavior": "oneDirection"
+    }
+  ],
+  "visuals": [
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "204c227682df2012358b",
+      "visualType": "tableEx",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Regular Price Index",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Promo Price Index",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual SKU Coverage %",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "57ca2674e4ac0525939a",
+      "visualType": "scatterChart",
+      "bindings": [
+        {
+          "role": "Series",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Size",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Avg SKU Count",
+          "kind": "measure"
+        },
+        {
+          "role": "X",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual SKU Coverage %",
+          "kind": "measure"
+        },
+        {
+          "role": "Y",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Regular Price Index",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "795be91879c3f3c81fb1",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "b18f0c0c3b45b6e285ff",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "year",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "c63ca5da4e806c565e61",
+      "visualType": "scatterChart",
+      "bindings": [
+        {
+          "role": "Series",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Size",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Avg SKU Count",
+          "kind": "measure"
+        },
+        {
+          "role": "X",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual SKU Coverage %",
+          "kind": "measure"
+        },
+        {
+          "role": "Y",
+          "table": "Part4RetailerPositioningMatrix",
+          "field": "Annual Promo Price Index",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "cd352ee2f555f34b5fc9",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "month",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "4. Retailer Positioning Matrix",
+      "visualId": "fd0ad448530e0fec1067",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "DimSkuCatalog",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "27c9f91c706d0922cdc2",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "category2",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "2b2752eb64221c7d1b1e",
+      "visualType": "tableEx",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "Promo SKU %",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "Promo Matched SKU Count",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "Median Discount %",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "Average Promo Days",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "Average Discount %",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "37fd2c8609192c9b42c1",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "month",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "672e35a7ff9dd722382a",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "category3",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "68da4b3e21663e8500f5",
+      "visualType": "lineChart",
+      "bindings": [
+        {
+          "role": "Category",
+          "table": "DimMonth",
+          "field": "MonthStart",
+          "kind": "column"
+        },
+        {
+          "role": "Series",
+          "table": "Part3PromotionIntensity",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Y",
+          "table": "Part3PromotionIntensity",
+          "field": "Promotion Frequency",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "6b4b6e40768338add958",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "DimSkuCatalog",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "3. Promotion Intensity",
+      "visualId": "dab5409a70944b6cfe02",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part3PromotionIntensity",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "1b0d41850ac11946d97b",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "category3",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "6b90c48f17046bb82823",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "month",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "767406bc5e2331afc7d6",
+      "visualType": "lineChart",
+      "bindings": [
+        {
+          "role": "Category",
+          "table": "DimMonth",
+          "field": "MonthStart",
+          "kind": "column"
+        },
+        {
+          "role": "Series",
+          "table": "Part2PriceIndex",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Y",
+          "table": "Part2PriceIndex",
+          "field": "Promo Price Index",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "885b5ba08b6552279b13",
+      "visualType": "lineChart",
+      "bindings": [
+        {
+          "role": "Category",
+          "table": "DimMonth",
+          "field": "MonthStart",
+          "kind": "column"
+        },
+        {
+          "role": "Series",
+          "table": "Part2PriceIndex",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Y",
+          "table": "Part2PriceIndex",
+          "field": "Regular Price Index",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "9086103fb1b06cbb9020",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "9b4cecb7666042014d83",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "DimSkuCatalog",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "bad0355f8ca0413dbfc6",
+      "visualType": "tableEx",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "Regular Price Index",
+          "kind": "measure"
+        },
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "Promo Price Index",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "2. Price Index",
+      "visualId": "cafb40500c0265c1c9ee",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "category2",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "0fd733345e77f7949d34",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part2PriceIndex",
+          "field": "month",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "320d79a041b25bd61f07",
+      "visualType": "clusteredBarChart",
+      "bindings": [
+        {
+          "role": "Category",
+          "table": "Part1Assortment",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Y",
+          "table": "Part1Assortment",
+          "field": "category_coverage_pct",
+          "kind": "aggregation"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "5e824c7f44aee0d9de7b",
+      "visualType": "cardVisual",
+      "bindings": [
+        {
+          "role": "Data",
+          "table": "Part1Assortment",
+          "field": "category_coverage_pct",
+          "kind": "aggregation"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "72e8fbce67279f6ec5de",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "FactPriceObservations",
+          "field": "retailer",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "83847685ff2522095eed",
+      "visualType": "cardVisual",
+      "bindings": [
+        {
+          "role": "Data",
+          "table": "Part1Assortment",
+          "field": "Retailer_count",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "d03798dccdf82ddd083f",
+      "visualType": "cardVisual",
+      "bindings": [
+        {
+          "role": "Data",
+          "table": "Part1Assortment",
+          "field": "Category Total SKU Count",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "d1631412d4bbe53a1502",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part1Assortment",
+          "field": "category1",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "df537f9ba0c01552c5a9",
+      "visualType": "slicer",
+      "bindings": [
+        {
+          "role": "Values",
+          "table": "Part1Assortment",
+          "field": "month",
+          "kind": "column"
+        }
+      ]
+    },
+    {
+      "page": "1. Assortment",
+      "visualId": "e2246a78091452459fc2",
+      "visualType": "barChart",
+      "bindings": [
+        {
+          "role": "Category",
+          "table": "Part1Assortment",
+          "field": "retailer",
+          "kind": "column"
+        },
+        {
+          "role": "Y",
+          "table": "Part1Assortment",
+          "field": "common_sku_count",
+          "kind": "aggregation"
+        },
+        {
+          "role": "Y",
+          "table": "Part1Assortment",
+          "field": "exclusive_sku_count",
+          "kind": "aggregation"
+        }
+      ]
+    }
+  ]
+}

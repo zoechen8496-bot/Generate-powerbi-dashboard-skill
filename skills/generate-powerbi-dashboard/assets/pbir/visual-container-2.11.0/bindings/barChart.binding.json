@@ -1,0 +1,176 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "barChart",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "bf492810fd68207ec93e07d75c0df7d78c9a37570a5b65e52dc503304c6a8886",
+    "sampleCount": 1
+  },
+  "roles": {
+    "Category": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "column": {
+          "field": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "active": true
+        }
+      }
+    },
+    "Y": {
+      "observedProjectionCount": {
+        "min": 2,
+        "max": 2
+      },
+      "projectionTemplates": {
+        "aggregation": {
+          "field": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "{{TABLE}}"
+                    }
+                  },
+                  "Property": "{{FIELD}}"
+                }
+              },
+              "Function": "{{AGGREGATION_FUNCTION}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "displayName": "{{DISPLAY_NAME}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {
+    "sortDefinitionTemplate": {
+      "sort": [
+        {
+          "field": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "{{SORT_TABLE}}"
+                    }
+                  },
+                  "Property": "{{SORT_FIELD}}"
+                }
+              },
+              "Function": "{{SORT_AGGREGATION_FUNCTION}}"
+            }
+          },
+          "direction": "Descending"
+        }
+      ],
+      "isDefaultSort": true
+    }
+  },
+  "format": {
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{{TEXT}}'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

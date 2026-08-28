@@ -1,0 +1,191 @@
+table Part4RetailerPositioningMatrix
+	lineageTag: bf866fd6-dc57-4fab-b55e-a8a6b68cab47
+
+	measure 'Annual SKU Coverage %' = ```
+			
+			          AVERAGE (
+			
+			              'Part4RetailerPositioningMatrix'[avg_category_coverage_pct]
+			          )
+			```
+		lineageTag: 6038cc4b-05d0-44bc-a2a1-17c893450dbf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Regular Price Index' = ```
+			
+			          AVERAGE (
+			
+			              'Part4RetailerPositioningMatrix'[price_index_regular_price_index]
+			          )
+			```
+		lineageTag: 99abe7ef-1fc8-4085-a901-0cd6d2c8fea8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Promo Price Index' = ```
+			
+			          AVERAGE (
+			
+			              'Part4RetailerPositioningMatrix'[price_index_promo_price_index]
+			          )
+			```
+		lineageTag: c5e2187b-758e-4fc4-a8ea-4f001843dea3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Avg SKU Count' = ```
+			
+			          AVERAGE (
+			              'Part4RetailerPositioningMatrix'[avg_sku_count]
+			          )
+			```
+		lineageTag: 1aca586d-7a6a-46f3-b9b6-680ff0df9980
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Avg Brand Count' = ```
+			
+			          AVERAGE (
+			              'Part4RetailerPositioningMatrix'[avg_brand_count]
+			          )
+			```
+		lineageTag: a1661b27-7d72-4ebf-9ebb-32b173037f43
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: d9d6fb99-0a18-4044-b51d-8cd17a07de13
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column category1
+		dataType: string
+		lineageTag: e02a8c26-5c8e-45d0-ae03-a8bcf78ad81e
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer
+		dataType: string
+		lineageTag: 6c941aa0-56c0-4946-a13e-852c0efb78a9
+		summarizeBy: none
+		sourceColumn: retailer
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_sku_count
+		dataType: double
+		lineageTag: 82963259-99ed-4585-b109-9427226ddb36
+		summarizeBy: sum
+		sourceColumn: avg_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_brand_count
+		dataType: double
+		lineageTag: edf99713-b673-407d-bf5e-dd43314e5a1a
+		summarizeBy: sum
+		sourceColumn: avg_brand_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_category_coverage_pct
+		dataType: double
+		lineageTag: d5b3ba4f-c67d-4804-a972-e1875ff9fd59
+		summarizeBy: sum
+		sourceColumn: avg_category_coverage_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_exclusive_sku_count
+		dataType: double
+		lineageTag: a8e47b50-bcca-44df-bebd-870a313cef58
+		summarizeBy: sum
+		sourceColumn: avg_exclusive_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_common_sku_count
+		dataType: double
+		lineageTag: b9805a35-73b4-40ff-b736-9c487865f1e3
+		summarizeBy: sum
+		sourceColumn: avg_common_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column matched_sku_count_promo_price_index
+		dataType: double
+		lineageTag: a329ed53-16a9-4c44-a533-8d2e8786a33b
+		summarizeBy: sum
+		sourceColumn: matched_sku_count_promo_price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column matched_sku_count_regular_price_index
+		dataType: double
+		lineageTag: 9d91908a-b585-4776-b672-c2ed5c1be174
+		summarizeBy: sum
+		sourceColumn: matched_sku_count_regular_price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_index_promo_price_index
+		dataType: double
+		lineageTag: 08b186fb-cc01-42d4-8442-c58e2589bc54
+		summarizeBy: sum
+		sourceColumn: price_index_promo_price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_index_regular_price_index
+		dataType: double
+		lineageTag: 52cb15b6-6332-48e2-b03b-029bc7d274df
+		summarizeBy: sum
+		sourceColumn: price_index_regular_price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Part4RetailerPositioningMatrix = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\part4_retailer_positioning_matrix.csv"), [Delimiter=",", Columns=12, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"year", Int64.Type}, {"category1", type text}, {"retailer", type text},
+				        {"avg_sku_count", type number}, {"avg_brand_count", type number}, {"avg_category_coverage_pct", Percentage.Type},
+				        {"avg_exclusive_sku_count", type number}, {"avg_common_sku_count", type number},
+				        {"matched_sku_count_promo_price_index", type number}, {"matched_sku_count_regular_price_index", type number},
+				        {"price_index_promo_price_index", type number}, {"price_index_regular_price_index", type number}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

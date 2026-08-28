@@ -1,0 +1,385 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "tableEx",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "93bd6dbc5e1be1ad5cd9739a401601bbf94ebbbcc93866d561dcbe150a2c6fc4",
+    "sampleCount": 3
+  },
+  "roles": {
+    "Values": {
+      "observedProjectionCount": {
+        "min": 3,
+        "max": 6
+      },
+      "projectionTemplates": {
+        "column": {
+          "field": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "displayName": "{{DISPLAY_NAME}}"
+        },
+        "measure": {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {
+    "sortDefinitionTemplate": {
+      "sort": [
+        {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{SORT_TABLE}}"
+                }
+              },
+              "Property": "{{SORT_FIELD}}"
+            }
+          },
+          "direction": "Descending"
+        }
+      ]
+    }
+  },
+  "format": {
+    "objects": {
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_0_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_1_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_2_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_3_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_4_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_5_QUERY_REF}}"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "241.9306745111448D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_5_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "227.00000304459417D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_4_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "186.33331089769638D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_3_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "256.3333414861784D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_2_QUERY_REF}}"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "199.66664819869118D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "{{VALUES_1_QUERY_REF}}"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

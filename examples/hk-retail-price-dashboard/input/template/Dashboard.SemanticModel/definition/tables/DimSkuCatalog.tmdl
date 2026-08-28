@@ -1,0 +1,68 @@
+table DimSkuCatalog
+	lineageTag: 6e51c0b7-e219-451f-a163-9fef5f9fca3c
+
+	column sku
+		dataType: string
+		lineageTag: c794568a-ad07-4696-a77f-1483058120ee
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 6eac3837-ad36-43fb-a7e4-7363c9eab023
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 3497be85-9c20-4a28-8b6d-5c94b8cdf096
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column category1
+		dataType: string
+		lineageTag: 5942b3c1-af57-40d2-ad1b-fd73f6242346
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column category2
+		dataType: string
+		lineageTag: 05eeb257-b58d-47a7-95ac-14f9e7ad8a44
+		summarizeBy: none
+		sourceColumn: category2
+
+		annotation SummarizationSetBy = Automatic
+
+	column category3
+		dataType: string
+		lineageTag: 907fa3f1-ad0c-4022-95fd-349b26230da7
+		summarizeBy: none
+		sourceColumn: category3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSkuCatalog = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\dim_sku_catalog.csv"), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"sku", type text}, {"product_name", type text}, {"brand", type text},
+				        {"category1", type text}, {"category2", type text}, {"category3", type text}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,37 @@
+{
+    "$schema":  "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+    "visualType":  "lineChart",
+    "feature":  "y1AxisReferenceLine",
+    "objects":  {
+                    "y1AxisReferenceLine":  [
+                                                {
+                                                    "properties":  {
+                                                                       "show":  {
+                                                                                    "expr":  {
+                                                                                                 "Literal":  {
+                                                                                                                 "Value":  "true"
+                                                                                                             }
+                                                                                             }
+                                                                                },
+                                                                       "displayName":  {
+                                                                                           "expr":  {
+                                                                                                        "Literal":  {
+                                                                                                                        "Value":  "\u0027Y-Axis Constant Line 1\u0027"
+                                                                                                                    }
+                                                                                                    }
+                                                                                       },
+                                                                       "value":  {
+                                                                                     "expr":  {
+                                                                                                  "Literal":  {
+                                                                                                                  "Value":  "100D"
+                                                                                                              }
+                                                                                              }
+                                                                                 }
+                                                                   },
+                                                    "selector":  {
+                                                                     "id":  "1"
+                                                                 }
+                                                }
+                                            ]
+                }
+}

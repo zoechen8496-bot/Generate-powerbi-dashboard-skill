@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Power BI Dashboard"
+  short_description: "Build validated Power BI dashboard project artifacts"
+  default_prompt: "Use $generate-powerbi-dashboard to build a Power BI dashboard from my specification, raw data, and visual assets."

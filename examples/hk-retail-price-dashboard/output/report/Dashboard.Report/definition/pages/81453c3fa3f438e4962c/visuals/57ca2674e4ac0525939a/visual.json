@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "57ca2674e4ac0525939a",
+  "position": {
+    "x": 24,
+    "y": 160,
+    "z": 4,
+    "height": 336,
+    "width": 608,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "retailer"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.retailer",
+              "nativeQueryRef": "retailer"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual Avg SKU Count"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual Avg SKU Count",
+              "nativeQueryRef": "Annual Avg SKU Count"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual SKU Coverage %"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual SKU Coverage %",
+              "nativeQueryRef": "Annual SKU Coverage %",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual Regular Price Index"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual Regular Price Index",
+              "nativeQueryRef": "Annual Regular Price Index"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Y-Axis Constant Line 1'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Regular Price Competitiveness vs. Product Assortment'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

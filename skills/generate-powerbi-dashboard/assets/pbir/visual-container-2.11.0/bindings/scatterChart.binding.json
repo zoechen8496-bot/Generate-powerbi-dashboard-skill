@@ -1,0 +1,175 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "scatterChart",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "4d776e4e6e91f28f12bce82cea52111ef3c9c7358f2886d550963818a7d497a3",
+    "sampleCount": 2
+  },
+  "roles": {
+    "Series": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "column": {
+          "field": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}"
+        }
+      }
+    },
+    "Size": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "measure": {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}"
+        }
+      }
+    },
+    "X": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "measure": {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "active": true
+        }
+      }
+    },
+    "Y": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "measure": {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {},
+  "format": {
+    "objects": {
+      "y1AxisReferenceLine": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Y-Axis Constant Line 1'"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "1"
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{{TEXT}}'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

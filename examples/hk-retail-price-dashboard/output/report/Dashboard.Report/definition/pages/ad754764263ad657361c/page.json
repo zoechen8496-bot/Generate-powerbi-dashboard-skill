@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ad754764263ad657361c",
+  "displayName": "2. Price Index",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "6b90c48f17046bb82823",
+      "target": "885b5ba08b6552279b13",
+      "type": "NoFilter"
+    },
+    {
+      "source": "6b90c48f17046bb82823",
+      "target": "767406bc5e2331afc7d6",
+      "type": "NoFilter"
+    }
+  ]
+}

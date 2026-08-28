@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "d03798dccdf82ddd083f",
+  "position": {
+    "x": 475,
+    "y": 10,
+    "z": 3000,
+    "height": 113.33333333333334,
+    "width": 253.33333333333334,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part1Assortment"
+                    }
+                  },
+                  "Property": "Category Total SKU Count"
+                }
+              },
+              "queryRef": "Part1Assortment.Category Total SKU Count",
+              "nativeQueryRef": "Total SKU Count",
+              "displayName": "Total SKU Count"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Part1Assortment"
+                  }
+                },
+                "Property": "Category Total SKU Count"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

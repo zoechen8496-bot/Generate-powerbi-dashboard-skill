@@ -1,0 +1,73 @@
+table DimDate
+	lineageTag: cdb6da0c-7765-41a7-b90c-ab9fec3f5621
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f9f24761-35a7-4df2-876f-2d741d777b25
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 011d98ff-5d95-48a3-a57c-e65a42550176
+			defaultHierarchy: LocalDateTable_a4cbf1c5-369d-4d6e-af1b-42e6a2d488cf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: f370730c-f1d4-463d-a9da-c3bc994c6009
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		dataType: int64
+		formatString: 0
+		lineageTag: b99aeaf7-b708-4e12-81b9-ec37fc0fb49c
+		summarizeBy: sum
+		sourceColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: ffeed22f-0be4-4d24-9497-f076bbb3f5eb
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: bea9a9c9-0752-4af7-8b37-cb325af95662
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(2024, 1, 1),
+				    EndDate = #date(2026, 7, 31),
+				    Dates = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1, 0, 0, 0)),
+				    TableDates = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+				    Typed = Table.TransformColumnTypes(TableDates, {{"Date", type date}}),
+				    AddYear = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
+				    AddMonthNo = Table.AddColumn(AddYear, "MonthNo", each Date.Month([Date]), Int64.Type),
+				    AddMonth = Table.AddColumn(AddMonthNo, "Month", each Date.ToText([Date], "yyyy-MM"), type text),
+				    AddMonthName = Table.AddColumn(AddMonth, "MonthName", each Date.ToText([Date], "MMM yyyy", "en-US"), type text)
+				in
+				    AddMonthName
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

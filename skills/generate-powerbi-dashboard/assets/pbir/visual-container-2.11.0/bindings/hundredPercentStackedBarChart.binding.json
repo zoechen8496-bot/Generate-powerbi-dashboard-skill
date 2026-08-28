@@ -1,0 +1,92 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "hundredPercentStackedBarChart",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "a0147bd2b1a6efc36d1eeb1a8dd2d0dcbdb362fa5faad5692300a6ce2b5322db",
+    "sampleCount": 1
+  },
+  "roles": {
+    "Category": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "column": {
+          "field": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "active": true
+        }
+      }
+    },
+    "Y": {
+      "observedProjectionCount": {
+        "min": 2,
+        "max": 2
+      },
+      "projectionTemplates": {
+        "aggregation": {
+          "field": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "{{TABLE}}"
+                    }
+                  },
+                  "Property": "{{FIELD}}"
+                }
+              },
+              "Function": "{{AGGREGATION_FUNCTION}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {
+    "sortDefinitionTemplate": {
+      "sort": [
+        {
+          "field": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "{{SORT_TABLE}}"
+                    }
+                  },
+                  "Property": "{{SORT_FIELD}}"
+                }
+              },
+              "Function": "{{SORT_AGGREGATION_FUNCTION}}"
+            }
+          },
+          "direction": "Descending"
+        }
+      ],
+      "isDefaultSort": true
+    }
+  },
+  "format": {},
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

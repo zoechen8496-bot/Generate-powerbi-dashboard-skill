@@ -1,0 +1,217 @@
+table Part3PromotionIntensity
+	lineageTag: f82cbcb8-a8fc-4347-9c45-9b5b920d4c06
+
+	measure 'Promo SKU %' =
+			
+			AVERAGE ( 'Part3PromotionIntensity'[promo_sku_pct] )
+		lineageTag: adc86f44-18f6-47ec-9751-4e4d26612bb9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Promo Days' =
+			
+			AVERAGE ( 'Part3PromotionIntensity'[avg_promo_days] )
+		lineageTag: b51083b1-c779-480e-9987-1bd706ee5174
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promotion Frequency' =
+			
+			AVERAGE
+			( 'Part3PromotionIntensity'[promotion_frequency] )
+		lineageTag: fe013ba8-a2c1-4cc7-ab3a-2f528b3f4c26
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Discount %' =
+			
+			AVERAGE
+			( 'Part3PromotionIntensity'[avg_discount_pct] )
+		lineageTag: 70160a85-0194-4b76-9313-0b34aa2df326
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Median Discount %' =
+			
+			AVERAGE
+			( 'Part3PromotionIntensity'[median_discount_pct] )
+		lineageTag: 516464d2-b4df-4a6f-b5da-cca5dd145662
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Matched SKU Count: The number of unique SKUs sold by more than one retailer.
+	measure 'Promo Matched SKU Count' =
+			
+			AVERAGE (
+			
+			    'Part3PromotionIntensity'[promo_index_matched_sku_count]
+			)
+		lineageTag: 7c6240da-62cb-4c15-8987-614dd25b7a97
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month
+		dataType: string
+		lineageTag: ef623fbf-ec44-43e1-bd9a-b6f9bdc1d60e
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_level
+		dataType: string
+		lineageTag: f3b75d2a-a089-440d-b7aa-080a96e10407
+		summarizeBy: none
+		sourceColumn: category_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column category1
+		dataType: string
+		lineageTag: 3c7af248-8808-432c-ab8c-989697585a3d
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column category2
+		dataType: string
+		lineageTag: ffde1fd2-c445-4b35-9e61-0dcf51cb53af
+		summarizeBy: none
+		sourceColumn: category2
+
+		annotation SummarizationSetBy = Automatic
+
+	column category3
+		dataType: string
+		lineageTag: 2909411f-3a30-408f-899d-e9cc0717afe8
+		summarizeBy: none
+		sourceColumn: category3
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer
+		dataType: string
+		lineageTag: 25ed7f27-9d37-4a69-bc86-a20ce83d7cf9
+		summarizeBy: none
+		sourceColumn: retailer
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 058d5bf7-e539-44ed-9083-e2248e153485
+		summarizeBy: sum
+		sourceColumn: total_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column promo_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 241f8ef9-7a82-4d95-899e-0e9435b95a39
+		summarizeBy: sum
+		sourceColumn: promo_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column promo_sku_pct
+		dataType: double
+		lineageTag: c784691a-5145-43fc-8308-d0aa248672f9
+		summarizeBy: sum
+		sourceColumn: promo_sku_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_promo_days
+		dataType: double
+		lineageTag: 2e209f41-04d4-4ee7-9b5c-335e2965f6d3
+		summarizeBy: sum
+		sourceColumn: avg_promo_days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month_days
+		dataType: int64
+		formatString: 0
+		lineageTag: fca1ca98-def6-4297-8bc0-394e5f336a37
+		summarizeBy: sum
+		sourceColumn: month_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column promotion_frequency
+		dataType: double
+		lineageTag: 10167ebc-74ff-4732-8c63-52ad854bbde4
+		summarizeBy: sum
+		sourceColumn: promotion_frequency
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_discount_pct
+		dataType: double
+		lineageTag: 33db2810-611f-4049-b4a2-60fb110a6859
+		summarizeBy: sum
+		sourceColumn: avg_discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column median_discount_pct
+		dataType: double
+		lineageTag: f5e28396-7f09-4cf5-a666-dbbb2a5be135
+		summarizeBy: sum
+		sourceColumn: median_discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column promo_index_matched_sku_count
+		dataType: double
+		lineageTag: a368023b-7173-4f4d-a55b-8e0b3181dd0e
+		summarizeBy: sum
+		sourceColumn: promo_index_matched_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column promo_price_index
+		dataType: double
+		lineageTag: 0e863a63-eb8b-49c5-b28a-8d62534e645e
+		summarizeBy: sum
+		sourceColumn: promo_price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Part3PromotionIntensity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\part3_promotion_intensity.csv"), [Delimiter=",", Columns=16, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"month", type text}, {"category_level", type text}, {"category1", type text}, {"category2", type text},
+				        {"category3", type text}, {"retailer", type text}, {"total_sku_count", Int64.Type}, {"promo_sku_count", Int64.Type},
+				        {"promo_sku_pct", Percentage.Type}, {"avg_promo_days", type number}, {"month_days", Int64.Type},
+				        {"promotion_frequency", Percentage.Type}, {"avg_discount_pct", Percentage.Type}, {"median_discount_pct", Percentage.Type},
+				        {"promo_index_matched_sku_count", type number}, {"promo_price_index", type number}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "82f72eab3d30dd055bcc",
+  "displayName": "3. Promotion Intensity",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "37fd2c8609192c9b42c1",
+      "target": "68da4b3e21663e8500f5",
+      "type": "NoFilter"
+    }
+  ]
+}

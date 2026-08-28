@@ -1,0 +1,80 @@
+table DimMonth
+	lineageTag: ab5e1574-1f33-480d-861d-6446efe3ac6c
+
+	column Month
+		dataType: string
+		lineageTag: 7ab99017-0c36-406a-a9a1-ffe53a32d1b9
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStart
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c1fbe234-981a-41dc-8c6f-041769d54fa7
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		variation Variation
+			isDefault
+			relationship: 2fa7b347-bcac-44c4-832a-b409220b468a
+			defaultHierarchy: LocalDateTable_a1be8bdc-7f7f-46a2-8d62-6e3c853ee9c0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c396907-4473-4f33-a216-ace407686514
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aa627de-980e-423d-a202-8db34a38b3ad
+		summarizeBy: sum
+		sourceColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: d69236d3-e972-47f3-8411-7b00595366b9
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthSort
+		dataType: int64
+		formatString: 0
+		lineageTag: e3059cb1-c00e-4322-91e6-ac63271d4b5b
+		summarizeBy: sum
+		sourceColumn: YearMonthSort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimMonth = m
+		mode: import
+		source =
+				let
+				    Source = DimDate,
+				    SelectMonthColumns = Table.SelectColumns(Source, {"Year", "MonthNo", "Month", "MonthName"}),
+				    DistinctMonths = Table.Distinct(SelectMonthColumns, {"Month"}),
+				    AddMonthStart = Table.AddColumn(DistinctMonths, "MonthStart", each #date([Year], [MonthNo], 1), type date),
+				    AddYearMonthSort = Table.AddColumn(AddMonthStart, "YearMonthSort", each [Year] * 100 + [MonthNo], Int64.Type),
+				    Reordered = Table.ReorderColumns(AddYearMonthSort, {"Month", "MonthStart", "Year", "MonthNo", "MonthName", "YearMonthSort"}),
+				    Sorted = Table.Sort(Reordered, {{"YearMonthSort", Order.Ascending}})
+				in
+				    Sorted
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

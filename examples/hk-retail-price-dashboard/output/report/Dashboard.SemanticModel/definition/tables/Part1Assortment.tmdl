@@ -1,0 +1,172 @@
+table Part1Assortment
+	lineageTag: 64a1a12b-c07c-4f46-bd20-7c0e63e0eaae
+
+	measure 'Category Total SKU Count' =
+			
+			MAX ( Part1Assortment[category_total_sku_count] )
+		formatString: 0
+		lineageTag: 991c602c-7726-40bb-a2d4-ef46d36cacde
+
+	measure 'Show Visual' =
+			
+			VAR SelectedMonthCount =
+			    COUNTROWS(
+			        ALLSELECTED('Part1Assortment'[month])
+			    )
+			VAR AllMonthCount =
+			    COUNTROWS(
+			        ALL('Part1Assortment'[month])
+			    )
+			VAR MonthIsSelected =
+			    SelectedMonthCount < AllMonthCount
+			
+			VAR SelectedCategoryCount =
+			    COUNTROWS(
+			        ALLSELECTED('Part1Assortment'[category1])
+			    )
+			VAR AllCategoryCount =
+			    COUNTROWS(
+			        ALL('Part1Assortment'[category1])
+			    )
+			VAR CategoryIsSelected =
+			    SelectedCategoryCount < AllCategoryCount
+			
+			RETURN
+			    IF(
+			        MonthIsSelected
+			            && CategoryIsSelected,
+			        1,
+			        0
+			    )
+		formatString: 0
+		lineageTag: b9d3a5c5-3ae0-424f-9701-a6f188b12033
+
+	measure Retailer_count = DISTINCTCOUNT ( Part1Assortment[retailer] )
+		formatString: 0
+		lineageTag: c6a5621e-cc04-4bdf-b96d-e084184be4fd
+
+	measure 'Retailer Count' = DISTINCTCOUNT ( Part1Assortment[retailer] )
+		formatString: #,0
+		lineageTag: 88736a0e-ae6d-4b8b-8947-367c54d5ecf4
+
+	measure 'SKU Count' = SUM ( Part1Assortment[sku_count] )
+		formatString: #,0
+		lineageTag: e382e91e-a8f2-45c7-9806-7e99d87aaf29
+
+	measure 'Brand Count' = SUM ( Part1Assortment[brand_count] )
+		formatString: #,0
+		lineageTag: 4bb7d9ce-e554-4b92-b035-34757c368ba5
+
+	measure 'Category Coverage %' = AVERAGE ( Part1Assortment[category_coverage_pct] )
+		formatString: 0.0%
+		lineageTag: 2ff28fc7-aade-44e0-9458-f3d65a1c2380
+
+	measure 'Exclusive SKU Count' = SUM ( Part1Assortment[exclusive_sku_count] )
+		formatString: #,0
+		lineageTag: 104febf1-1c9b-45ed-9ff0-fd26cd75bd75
+
+	measure 'Common SKU Count' = SUM ( Part1Assortment[common_sku_count] )
+		formatString: #,0
+		lineageTag: 67e96fcb-20bb-4d92-9c1e-71ae0a8d899c
+
+	measure 'Coverage Gap %' = 1 - [Category Coverage %]
+		formatString: 0.0%
+		lineageTag: 1b9f840a-2a6c-428f-ba1a-01d0acafef98
+
+	column month
+		dataType: string
+		lineageTag: b3faebe3-fe27-4de0-bc96-c13a00d53e2a
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column category1
+		dataType: string
+		lineageTag: 3b88034d-d684-40e4-9830-b180d25e0b98
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer
+		dataType: string
+		lineageTag: be41ad85-a87e-4604-8d83-4140dc118aa2
+		summarizeBy: none
+		sourceColumn: retailer
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: b9717d6a-c5d0-4905-8bad-57c0fd46f0b2
+		summarizeBy: sum
+		sourceColumn: sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 47ec9971-4929-4d5c-aeb3-67312f765f1f
+		summarizeBy: sum
+		sourceColumn: brand_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_total_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: f37c36fb-fa7f-4964-bebf-ac300a035b63
+		summarizeBy: sum
+		sourceColumn: category_total_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column exclusive_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: bf49b590-843b-494c-961b-68d0129e3730
+		summarizeBy: sum
+		sourceColumn: exclusive_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column common_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: b0af6f00-e347-4fa7-90be-ac8ba8d7cc24
+		summarizeBy: sum
+		sourceColumn: common_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_coverage_pct
+		dataType: double
+		lineageTag: 02f601e7-03c1-4c93-8189-40e9584a3904
+		summarizeBy: sum
+		sourceColumn: category_coverage_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Part1Assortment = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\part1_assortment.csv"), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"month", type text}, {"category1", type text}, {"retailer", type text},
+				        {"sku_count", Int64.Type}, {"brand_count", Int64.Type}, {"category_total_sku_count", Int64.Type},
+				        {"exclusive_sku_count", Int64.Type}, {"common_sku_count", Int64.Type}, {"category_coverage_pct", Percentage.Type}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

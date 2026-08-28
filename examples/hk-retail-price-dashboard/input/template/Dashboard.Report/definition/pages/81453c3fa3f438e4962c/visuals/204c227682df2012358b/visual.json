@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "204c227682df2012358b",
+  "position": {
+    "x": 644.28571428571433,
+    "y": 17.142857142857142,
+    "z": 6000,
+    "height": 164.28571428571431,
+    "width": 607.14285714285722,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "retailer"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.retailer",
+              "nativeQueryRef": "Retailer",
+              "displayName": "Retailer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual Regular Price Index"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual Regular Price Index",
+              "nativeQueryRef": "Annual Regular Price Index"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual Promo Price Index"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual Promo Price Index",
+              "nativeQueryRef": "Annual Promo Price Index"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Part4RetailerPositioningMatrix"
+                    }
+                  },
+                  "Property": "Annual SKU Coverage %"
+                }
+              },
+              "queryRef": "Part4RetailerPositioningMatrix.Annual SKU Coverage %",
+              "nativeQueryRef": "Annual SKU Coverage %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Part4RetailerPositioningMatrix"
+                  }
+                },
+                "Property": "Annual Regular Price Index"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

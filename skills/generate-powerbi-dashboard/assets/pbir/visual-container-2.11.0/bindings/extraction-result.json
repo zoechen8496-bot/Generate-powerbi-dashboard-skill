@@ -1,0 +1,139 @@
+{
+  "status": "Passed",
+  "sourceReportName": "Dashboard.Report",
+  "generatedBindingAssets": [
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "areaChart",
+      "asset": "bindings/areaChart.binding.json",
+      "roles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "barChart",
+      "asset": "bindings/barChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "cardVisual",
+      "asset": "bindings/cardVisual.binding.json",
+      "roles": [
+        "Data"
+      ],
+      "sampleCount": 3
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "clusteredBarChart",
+      "asset": "bindings/clusteredBarChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "clusteredColumnChart",
+      "asset": "bindings/clusteredColumnChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "columnChart",
+      "asset": "bindings/columnChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "hundredPercentStackedBarChart",
+      "asset": "bindings/hundredPercentStackedBarChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "hundredPercentStackedColumnChart",
+      "asset": "bindings/hundredPercentStackedColumnChart.binding.json",
+      "roles": [
+        "Category",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "lineChart",
+      "asset": "bindings/lineChart.binding.json",
+      "roles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "sampleCount": 3
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "scatterChart",
+      "asset": "bindings/scatterChart.binding.json",
+      "roles": [
+        "Series",
+        "Size",
+        "X",
+        "Y"
+      ],
+      "sampleCount": 2
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "slicer",
+      "asset": "bindings/slicer.binding.json",
+      "roles": [
+        "Values"
+      ],
+      "sampleCount": 18
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "stackedAreaChart",
+      "asset": "bindings/stackedAreaChart.binding.json",
+      "roles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "sampleCount": 1
+    },
+    {
+      "schemaVersion": "2.11.0",
+      "visualType": "tableEx",
+      "asset": "bindings/tableEx.binding.json",
+      "roles": [
+        "Values"
+      ],
+      "sampleCount": 3
+    }
+  ],
+  "typesWithBindings": 13
+}

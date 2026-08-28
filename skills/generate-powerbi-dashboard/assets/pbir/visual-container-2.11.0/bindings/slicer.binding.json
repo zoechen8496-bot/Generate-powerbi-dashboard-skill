@@ -1,0 +1,84 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "slicer",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "4fba009a56c7420e41a2040b386b32e890a9f64dcaae9d88db786d8ccd6d37c4",
+    "sampleCount": 18
+  },
+  "roles": {
+    "Values": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "column": {
+          "field": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "active": true,
+          "displayName": "{{DISPLAY_NAME}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {},
+  "format": {
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

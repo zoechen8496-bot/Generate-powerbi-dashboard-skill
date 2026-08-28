@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "2.11.0",
+  "generatedFrom": [
+    "Desktop-authored visual-container samples",
+    "Desktop-authored analytics samples",
+    "Desktop-authored bound visuals from help/template"
+  ],
+  "visualTypes": [
+    {
+      "visualType": "areaChart",
+      "sampleName": "areachart",
+      "aliases": [
+        "areaChart"
+      ],
+      "asset": "visual-types/areaChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/areaChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "barChart",
+      "sampleName": "stackedbarchart",
+      "aliases": [
+        "barChart",
+        "stackedbarchart"
+      ],
+      "asset": "visual-types/barChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/barChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "cardVisual",
+      "sampleName": "card",
+      "aliases": [
+        "card",
+        "cardVisual"
+      ],
+      "asset": "visual-types/cardVisual.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/cardVisual.binding.json",
+      "boundRoles": [
+        "Data"
+      ],
+      "bindingSourceCount": 3
+    },
+    {
+      "visualType": "clusteredBarChart",
+      "sampleName": "clusteredBarchart",
+      "aliases": [
+        "clusteredBarChart"
+      ],
+      "asset": "visual-types/clusteredBarChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/clusteredBarChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "clusteredColumnChart",
+      "sampleName": "clusteredColumnChart",
+      "aliases": [
+        "clusteredColumnChart"
+      ],
+      "asset": "visual-types/clusteredColumnChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/clusteredColumnChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "columnChart",
+      "sampleName": "columnchart",
+      "aliases": [
+        "columnChart"
+      ],
+      "asset": "visual-types/columnChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/columnChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "hundredPercentStackedBarChart",
+      "sampleName": "hundredPercentStackedBarChart",
+      "aliases": [
+        "hundredPercentStackedBarChart"
+      ],
+      "asset": "visual-types/hundredPercentStackedBarChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/hundredPercentStackedBarChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "hundredPercentStackedColumnChart",
+      "sampleName": "hundredPercentStackedColumnChart",
+      "aliases": [
+        "hundredPercentStackedColumnChart"
+      ],
+      "asset": "visual-types/hundredPercentStackedColumnChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/hundredPercentStackedColumnChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "lineChart",
+      "sampleName": "lineChart",
+      "aliases": [
+        "lineChart"
+      ],
+      "asset": "visual-types/lineChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/lineChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "bindingSourceCount": 3
+    },
+    {
+      "visualType": "scatterChart",
+      "sampleName": "scatterChart",
+      "aliases": [
+        "scatterChart"
+      ],
+      "asset": "visual-types/scatterChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/scatterChart.binding.json",
+      "boundRoles": [
+        "Series",
+        "Size",
+        "X",
+        "Y"
+      ],
+      "bindingSourceCount": 2
+    },
+    {
+      "visualType": "slicer",
+      "sampleName": "slicer",
+      "aliases": [
+        "slicer"
+      ],
+      "asset": "visual-types/slicer.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/slicer.binding.json",
+      "boundRoles": [
+        "Values"
+      ],
+      "bindingSourceCount": 18
+    },
+    {
+      "visualType": "stackedAreaChart",
+      "sampleName": "stackedAreaChart",
+      "aliases": [
+        "stackedAreaChart"
+      ],
+      "asset": "visual-types/stackedAreaChart.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/stackedAreaChart.binding.json",
+      "boundRoles": [
+        "Category",
+        "Series",
+        "Y"
+      ],
+      "bindingSourceCount": 1
+    },
+    {
+      "visualType": "tableEx",
+      "sampleName": "table",
+      "aliases": [
+        "table",
+        "tableEx"
+      ],
+      "asset": "visual-types/tableEx.visual.json",
+      "bindingStatus": "available",
+      "bindingAsset": "bindings/tableEx.binding.json",
+      "boundRoles": [
+        "Values"
+      ],
+      "bindingSourceCount": 3
+    }
+  ],
+  "features": [
+    {
+      "visualType": "scatterChart",
+      "feature": "y1AxisReferenceLine",
+      "asset": "features/scatterChart.y1AxisReferenceLine.json"
+    },
+    {
+      "visualType": "lineChart",
+      "feature": "y1AxisReferenceLine",
+      "asset": "features/lineChart.y1AxisReferenceLine.json"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+table Part2PriceIndex
+	lineageTag: 19825dd0-8228-44d0-bd0f-00014f318fe1
+
+	measure 'Regular Price Index' =
+			
+			CALCULATE (
+			    AVERAGE ( Part2PriceIndex[price_index] ),
+			    Part2PriceIndex[index_type] = "regular_price_index"
+			)
+		lineageTag: ee1d7305-ebf9-41cd-ac0f-3c9c2815bfca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promo Price Index' =
+			
+			CALCULATE (
+			    AVERAGE ( Part2PriceIndex[price_index] ),
+			    Part2PriceIndex[index_type] = "promo_price_index"
+			)
+		lineageTag: e7991eeb-0f1f-4ac8-9f85-6f4f890b8465
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Matched SKU Count' =
+			
+			AVERAGE ( Part2PriceIndex[matched_sku_count] )
+		lineageTag: cc8e103c-a69b-4e45-a880-2232db2836db
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Price Advantage vs Market' =
+			
+			100 - [Regular Price Index]
+		lineageTag: dba6b501-1b40-44c5-8e6e-4a0f2bcfbc9f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Promo Price Advantage vs Market' =
+			
+			100 - [Promo Price Index]
+		lineageTag: cdd34310-3d81-4b45-987a-446e4663162f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month
+		dataType: string
+		lineageTag: a3348c6e-04e3-4905-b3eb-cb5ef3004fcd
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_level
+		dataType: string
+		lineageTag: 2ec0252d-b4b0-4335-ace2-416e4fb1f4e2
+		summarizeBy: none
+		sourceColumn: category_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column category1
+		dataType: string
+		lineageTag: 8d922093-6039-4c0b-9a06-bbad2b8eaf9a
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column category2
+		dataType: string
+		lineageTag: de2e30d0-3992-4b5c-bc15-662482683267
+		summarizeBy: none
+		sourceColumn: category2
+
+		annotation SummarizationSetBy = Automatic
+
+	column category3
+		dataType: string
+		lineageTag: c87dfee6-4a8c-4411-a237-1184421197a7
+		summarizeBy: none
+		sourceColumn: category3
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer
+		dataType: string
+		lineageTag: 247ed746-9250-4b86-9e42-25857b34fda4
+		summarizeBy: none
+		sourceColumn: retailer
+
+		annotation SummarizationSetBy = Automatic
+
+	column index_type
+		dataType: string
+		lineageTag: d0110e28-78e7-4ad6-936d-3c19e0ffc8fa
+		summarizeBy: none
+		sourceColumn: index_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column matched_sku_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 805bb339-6b99-47c5-abef-717c09877e05
+		summarizeBy: sum
+		sourceColumn: matched_sku_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer_avg_price
+		dataType: double
+		lineageTag: 1c4c9246-6564-4cae-be33-ac7446ca503e
+		summarizeBy: sum
+		sourceColumn: retailer_avg_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column market_avg_price
+		dataType: double
+		lineageTag: a5dd74ee-01ad-49a6-86a8-dac9c369c8bf
+		summarizeBy: sum
+		sourceColumn: market_avg_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price_index
+		dataType: double
+		lineageTag: a27f42b3-417b-48c9-a19e-9d37894dc391
+		summarizeBy: sum
+		sourceColumn: price_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Part2PriceIndex = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\part2_price_index.csv"), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"month", type text}, {"category_level", type text}, {"category1", type text}, {"category2", type text},
+				        {"category3", type text}, {"retailer", type text}, {"index_type", type text}, {"matched_sku_count", Int64.Type},
+				        {"retailer_avg_price", type number}, {"market_avg_price", type number}, {"price_index", type number}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

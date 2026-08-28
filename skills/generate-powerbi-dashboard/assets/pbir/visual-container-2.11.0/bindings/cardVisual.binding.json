@@ -1,0 +1,80 @@
+{
+  "$schema": "https://openai.local/schemas/pbir-binding-template/1.0/schema.json",
+  "visualContainerSchema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "schemaVersion": "2.11.0",
+  "visualType": "cardVisual",
+  "source": {
+    "kind": "Power BI Desktop-authored bound visual",
+    "representativeSha256": "0677fb79a00039fc6fd33c15bc81b2feaaad2b0edff08e1bb78036a24317023d",
+    "sampleCount": 3
+  },
+  "roles": {
+    "Data": {
+      "observedProjectionCount": {
+        "min": 1,
+        "max": 1
+      },
+      "projectionTemplates": {
+        "measure": {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{TABLE}}"
+                }
+              },
+              "Property": "{{FIELD}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "displayName": "{{DISPLAY_NAME}}"
+        },
+        "aggregation": {
+          "field": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "{{TABLE}}"
+                    }
+                  },
+                  "Property": "{{FIELD}}"
+                }
+              },
+              "Function": "{{AGGREGATION_FUNCTION}}"
+            }
+          },
+          "queryRef": "{{QUERY_REF}}",
+          "nativeQueryRef": "{{NATIVE_QUERY_REF}}",
+          "displayName": "{{DISPLAY_NAME}}"
+        }
+      }
+    }
+  },
+  "queryExtras": {
+    "sortDefinitionTemplate": {
+      "sort": [
+        {
+          "field": {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "{{SORT_TABLE}}"
+                }
+              },
+              "Property": "{{SORT_FIELD}}"
+            }
+          },
+          "direction": "Descending"
+        }
+      ],
+      "isDefaultSort": true
+    }
+  },
+  "format": {},
+  "defaults": {
+    "drillFilterOtherVisuals": true
+  }
+}

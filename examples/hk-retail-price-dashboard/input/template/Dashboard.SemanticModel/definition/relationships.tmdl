@@ -1,0 +1,39 @@
+relationship 011d98ff-5d95-48a3-a57c-e65a42550176
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.Date
+	toColumn: LocalDateTable_a4cbf1c5-369d-4d6e-af1b-42e6a2d488cf.Date
+
+relationship 217c90fd-1b78-4c1f-9252-8b6669999113
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPriceObservations.data_date
+	toColumn: LocalDateTable_7442ff1a-7875-44cc-a1ef-b32f8180da3f.Date
+
+relationship AutoDetected_9f7ba6d3-c7bd-4525-bd0b-3d74ddfb6a80
+	fromColumn: FactPriceObservations.sku
+	toColumn: DimSkuCatalog.sku
+
+relationship 2fa7b347-bcac-44c4-832a-b409220b468a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimMonth.MonthStart
+	toColumn: LocalDateTable_a1be8bdc-7f7f-46a2-8d62-6e3c853ee9c0.Date
+
+relationship AutoDetected_0d9420c2-2902-4e79-9eee-13cd3cb1ec80
+	fromColumn: DimDate.Month
+	toColumn: DimMonth.Month
+
+relationship AutoDetected_7e3af417-b3d8-4a36-a284-506cf028173a
+	fromColumn: FactPriceObservations.month
+	toColumn: DimMonth.Month
+
+relationship AutoDetected_d72b0f73-8c07-452e-82cb-c7255a9c6ed4
+	fromColumn: Part1Assortment.month
+	toColumn: DimMonth.Month
+
+relationship AutoDetected_8a8a5ea1-d337-4492-9014-eb81e91f22d9
+	fromColumn: Part2PriceIndex.month
+	toColumn: DimMonth.Month
+
+relationship AutoDetected_ec007bd4-4535-4481-a950-26f2cb8076a9
+	fromColumn: Part3PromotionIntensity.month
+	toColumn: DimMonth.Month
+

@@ -1,0 +1,7 @@
+expression AssetsRoot = "D:\HuaweiMoveData\Users\Zoe\Desktop\online price dataset\dashboard\assets" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 2f531b4f-2617-4e83-8611-55f69c64b60f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

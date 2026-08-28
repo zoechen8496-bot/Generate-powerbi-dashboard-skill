@@ -1,0 +1,194 @@
+table FactPriceObservations
+	lineageTag: 7649919b-b53e-4255-9fc7-7e4f98b7dcb0
+
+	column data_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cfb11c0a-b6c2-4361-bd45-0ed1a243dcb3
+		summarizeBy: none
+		sourceColumn: data_date
+
+		variation Variation
+			isDefault
+			relationship: 217c90fd-1b78-4c1f-9252-8b6669999113
+			defaultHierarchy: LocalDateTable_7442ff1a-7875-44cc-a1ef-b32f8180da3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column category1
+		dataType: string
+		lineageTag: a5fae017-cbba-4452-897f-286f524c84f0
+		summarizeBy: none
+		sourceColumn: category1
+
+		annotation SummarizationSetBy = Automatic
+
+	column category2
+		dataType: string
+		lineageTag: c18304c2-3c2b-444a-b8a4-f5bc7f27b862
+		summarizeBy: none
+		sourceColumn: category2
+
+		annotation SummarizationSetBy = Automatic
+
+	column category3
+		dataType: string
+		lineageTag: 57d0d28c-ca18-46c9-af19-fd5fb590c1bd
+		summarizeBy: none
+		sourceColumn: category3
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku
+		dataType: string
+		lineageTag: 94522e6c-f216-43e3-af49-768065e09aab
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: e8b62e4b-ea76-468c-b164-371bfb20e08c
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 6af8b4ac-e092-4e21-bbe8-8a7f6b80923e
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column retailer
+		dataType: string
+		lineageTag: 42a1fa36-9faf-4544-8d24-92bd3cf7063b
+		summarizeBy: none
+		sourceColumn: retailer
+
+		annotation SummarizationSetBy = Automatic
+
+	column regular_price
+		dataType: double
+		lineageTag: fbd71684-0036-423e-81bf-d21e46dd89f3
+		summarizeBy: sum
+		sourceColumn: regular_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column offers
+		dataType: string
+		lineageTag: e608f769-1bcb-4e0c-a2c8-a3595183ee11
+		summarizeBy: none
+		sourceColumn: offers
+
+		annotation SummarizationSetBy = Automatic
+
+	column offer_category
+		dataType: string
+		lineageTag: 64440282-7f11-4612-a878-a5366c819c04
+		summarizeBy: none
+		sourceColumn: offer_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column real_unit_price
+		dataType: double
+		lineageTag: a0b9bd6f-8262-49cf-beeb-075aad4a491e
+		summarizeBy: sum
+		sourceColumn: real_unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month
+		dataType: string
+		lineageTag: 7823c322-4ade-4b52-9478-4fc11539d55e
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: c6332d0e-03ec-4474-9f69-2c7d93287406
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column promo_price
+		dataType: double
+		lineageTag: 9afde173-7684-4098-b784-3f3acc0502ac
+		summarizeBy: sum
+		sourceColumn: promo_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_promo
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4666107e-716d-4bfc-ada4-5b32432eb92d
+		summarizeBy: none
+		sourceColumn: is_promo
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_pct
+		dataType: double
+		lineageTag: 94f5044b-81af-44d2-afee-2f177f9f2daf
+		summarizeBy: sum
+		sourceColumn: discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source_file
+		dataType: string
+		lineageTag: 97cfe55a-df4b-4f8e-9adc-f3fbab4535a8
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ef7a02e-5149-425c-b02e-37626e04fece
+		summarizeBy: sum
+		sourceColumn: month_days
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactPriceObservations = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(AssetsRoot & "\fact_price_observations.csv"), [Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {
+				        {"data_date", type date}, {"category1", type text}, {"category2", type text}, {"category3", type text},
+				        {"sku", type text}, {"brand", type text}, {"product_name", type text}, {"retailer", type text},
+				        {"regular_price", type number}, {"offers", type text}, {"offer_category", type text}, {"real_unit_price", type number},
+				        {"month", type text}, {"year", Int64.Type}, {"promo_price", type number}, {"is_promo", type logical},
+				        {"discount_pct", Percentage.Type}, {"source_file", type text}, {"month_days", Int64.Type}
+				    })
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

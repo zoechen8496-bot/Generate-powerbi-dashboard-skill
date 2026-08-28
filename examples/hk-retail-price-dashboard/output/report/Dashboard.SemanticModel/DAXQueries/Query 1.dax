@@ -1,0 +1,40 @@
+DEFINE
+      MEASURE 'OpportunityVendorNegotiation'[Opportunity Score] =
+          AVERAGE (
+              OpportunityVendorNegotiation[opportunity_score]
+          )
+
+      MEASURE 'OpportunityVendorNegotiation'[Opportunity Coverage Gap %] =
+          AVERAGE (
+              OpportunityVendorNegotiation[coverage_gap_pct]
+          )
+
+      MEASURE 'OpportunityHighPriceGapSku'[High Price Gap %] =
+          AVERAGE (
+              OpportunityHighPriceGapSku[regular_price_gap_pct]
+          )
+
+      MEASURE 'OpportunityHighPriceGapSku'[High Price Gap SKU Count] =
+          DISTINCTCOUNT (
+              OpportunityHighPriceGapSku[sku]
+          )
+
+      MEASURE 'OpportunitySkuCoverageGap'[Missing SKU Count] =
+          DISTINCTCOUNT (
+              OpportunitySkuCoverageGap[sku]
+          )
+
+      MEASURE 'OpportunityBrandAvailability'[Underdistributed Brand Count] =
+          DISTINCTCOUNT (
+              OpportunityBrandAvailability[brand]
+          )
+
+  EVALUATE
+      ROW (
+          "Opportunity Score", [Opportunity Score],
+          "Opportunity Coverage Gap %", [Opportunity Coverage Gap %],
+          "High Price Gap %", [High Price Gap %],
+          "High Price Gap SKU Count", [High Price Gap SKU Count],
+          "Missing SKU Count", [Missing SKU Count],
+          "Underdistributed Brand Count", [Underdistributed Brand Count]
+      )

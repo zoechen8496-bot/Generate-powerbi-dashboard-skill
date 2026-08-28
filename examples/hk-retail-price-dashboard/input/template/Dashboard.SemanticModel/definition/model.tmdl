@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: zh-CN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["AssetsRoot","DimDate","FactPriceObservations","DimSkuCatalog","Part1Assortment","Part2PriceIndex","Part3PromotionIntensity","Part4RetailerPositioningMatrix","DimMonth"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table DimDate
+ref table FactPriceObservations
+ref table DimSkuCatalog
+ref table Part1Assortment
+ref table Part2PriceIndex
+ref table Part3PromotionIntensity
+ref table Part4RetailerPositioningMatrix
+ref table DateTableTemplate_bb9eea25-f645-4d0d-ae0c-d5512344229b
+ref table LocalDateTable_a4cbf1c5-369d-4d6e-af1b-42e6a2d488cf
+ref table LocalDateTable_7442ff1a-7875-44cc-a1ef-b32f8180da3f
+ref table DimMonth
+ref table LocalDateTable_a1be8bdc-7f7f-46a2-8d62-6e3c853ee9c0
+
+ref cultureInfo en-US
+
